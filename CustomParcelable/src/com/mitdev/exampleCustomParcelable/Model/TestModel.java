@@ -12,27 +12,27 @@ public class TestModel extends CustomParcelable{
 	private int logo;
 	
 	@SuppressWarnings("rawtypes")
+	public static Parcelable.Creator CREATOR = new Parcelable.Creator() {
+		public TestModel createFromParcel(Parcel in) {
+			return new TestModel(in);			
+		}
+		
+		public TestModel[] newArray(int size){
+			return new TestModel[size];
+		}
+	};
+	
+	public TestModel(Parcel source){
+		super(source);
+	}
+	
 	public TestModel(int id, String nombre, String version, int logo){
 		super();
-		
-		 CREATOR = new Parcelable.Creator() {
-				public TestModel createFromParcel(Parcel in) {
-					return new TestModel(in);			
-				}
-				
-				public TestModel[] newArray(int size){
-					return new TestModel[size];
-				}
-			};
-			
+
 		this.id = id;
 		this.nombre = nombre;
 		this.version = version;
 		this.logo = logo;
-	}
-	
-	public TestModel(Parcel source){
-		super(source);
 	}
 	
 	public int getId(){

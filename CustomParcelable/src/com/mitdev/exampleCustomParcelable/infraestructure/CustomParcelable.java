@@ -8,9 +8,6 @@ import android.util.Log;
 
 public abstract class CustomParcelable implements Parcelable{	
 	
-	@SuppressWarnings("rawtypes")
-	public static Parcelable.Creator CREATOR; 
-	
 	public CustomParcelable(){
 		super();
 	}
